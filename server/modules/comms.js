@@ -1,12 +1,10 @@
-var db = require('./db');
-var User = db.User;
+// var db = require('./db');
+// var User = db.User;
 
 module.exports = function(io) {
   io.sockets.on('connection', function(socket) {
-
-    socket.on('someEvent', function() {
-      User.find(/* ... */);
-    });
+  	console.log('CONNECTION');
+  	socket.emit('handshake', 'Connection initiated');
 
   });
 };
