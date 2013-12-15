@@ -17,10 +17,10 @@ module.exports = {
       // handle socket data requests
       socket.on('get', function(req) {
         console.log(req.request);
-        if(map[req.request]) map[req.request](req, function(res) {
+        if(map[req.request]) map[req.request](req).then(function(res) {
           console.log('EMIT ' + req.request);
           socket.emit(req.request, res);
-        });
+        }, console.error);
       });
 
     });

@@ -1,3 +1,4 @@
+var q = require('q');
 var config     = require('../../config');
 var mysql      = require('mysql');
 var connection = mysql.createConnection(config.mysql);
@@ -9,25 +10,36 @@ var cache = {
 
 var AssignmentModel = {
 
-  all: function(q, done) {
+  all: function(arg) {
+
+    var def = q.defer();
     connection.query(cache.allAssignments, function(err, rows) {
-      done(rows);
+      if(err) def.reject(err);
+      def.resolve(rows);
     });
+    return def.promise;
   },
 
-  forUser: function(q, done) {
-    var query = cache.AllAssignments +
-                ' WHERE users.id = ' + q;
+  forUser: function(arg) {
+    var def = q.defer();
+    var query = cache.allAssignments +
+                ' WHERE users.id = ' + arg;
 
     connection.query(query, function(err, rows) {
-      done(rows);
+      if(err) def.reject(err);
+      def.resolve(rows);
     });
+    
+    return def.promise;
   },
 
   find: function(id, done) {
+    var def = q.defer();
     connection.query('SELECT * FROM tasks WHERE id = "' + id +'"', function(err, rows, etc) {
-      done(rows);
+      if(err) def.reject(err);
+      def.resolve(rows);
     });
+    return def.promise;
   },
 
   add: function(task) {

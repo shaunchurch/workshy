@@ -1,34 +1,27 @@
 // assignment.db.spec.js
 
-var assert = require("assert");
+// var assert = require("assert");
+var expect = require('chai').expect;
 
-var db = require('./assignment.db.js');
+var db = require('./assignment.db');
 
-describe('ASSIGNMENT DB', function() {
-  describe('Retrieve a list of assignments', function() {
+describe('ASSIGNMENT MODEL', function() {
+  describe('Retrieve assignments', function() {
     it('should return an array of assignment objects', function(done) {
-      db.all(0, function(data) {
-        // assert.array(data);
-        // data[0].should.equal(-1);
-        // expect([1,2,3].indexOf(4)).should.equal(-1);
+      db.all(0).then(function(data) {
+        expect(data).to.be.instanceOf(Array);
+        expect(data[0]).to.be.instanceOf(Object);
+        done();
+      });
+    });
 
+    it('should return an array of assignment objects for a specific user', function(done) {
+      db.forUser(1).then(function(data) {
+        expect(data).to.be.instanceOf(Array);
+        expect(data[0]).to.be.instanceOf(Object);
+        expect(data[0].user_id).to.equal(1);
         done();
       });
     });
   });
-
-  // describe('Retrive a single assignment object', function(){
-  //   it('should return a assignment object on query', function(done){
-  //     db.find(1, function(data) {
-  //       assert.equal('Clean Kitchen', data[0].title);
-  //       done();
-  //     });
-  //   });
-  // });
-
-  // describe('Add a assignment to the database.', function() {
-  //   it('should return a success response', function(done) {
-  //     // done();
-  //   });
-  // })
 });

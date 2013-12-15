@@ -4,14 +4,15 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-simple-mocha');
+  grunt.loadNpmTasks('grunt-contrib-watch');
 
   // Project configuration.
   grunt.initConfig({
 
-    // watch: {
-    //   files: '<config:lint.files>',
-    //   tasks: 'default timestamp'
-    // },
+    watch: {
+       files: ['modules/**/*.js', 'common/**/*.js', 'Gruntfile.js', 'config.js', 'server.js'],
+       tasks: 'test'
+    },
     jshint: {
       files: ['Gruntfile.js', 'server.js', '**/**/*.spec.js'],
       options: {
@@ -43,7 +44,7 @@ module.exports = function(grunt) {
   });
 
   // Default task.
-  grunt.registerTask('default', ['jshint']);
+  grunt.registerTask('default', ['jshint', 'watch']);
 
   grunt.registerTask('timestamp', function() {
     grunt.log.subhead(Date());

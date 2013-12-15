@@ -3,10 +3,10 @@
 var assert = require("assert");
 var db = require('./task.db.js');
 
-describe('TASK DB', function() {
+describe('TASK MODEL', function() {
   describe('Retrieve a list of tasks', function() {
     it('should return an array of task objects', function(done) {
-      db.all(0, function(data) {
+      db.all(0).then(function(data) {
         assert.equal(data[0].title, 'Clean Kitchen');
         done();
       });
@@ -15,7 +15,7 @@ describe('TASK DB', function() {
 
   describe('Retrive a single task object', function(){
     it('should return a task object on query', function(done){
-      db.find(1, function(data) {
+      db.find(1).then(function(data) {
         assert.equal(data[0].title, 'Clean Kitchen');
         // assert.typeOf('array', data);
         done();
