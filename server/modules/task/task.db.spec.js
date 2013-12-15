@@ -5,7 +5,7 @@ var db = require('./task.db.js');
 
 describe('TASK MODEL', function() {
   describe('Retrieve a list of tasks', function() {
-    it('should return an array of task objects', function(done) {
+    it('returns an array of task objects', function(done) {
       db.all(0).then(function(data) {
         assert.equal(data[0].title, 'Clean Kitchen');
         done();
@@ -14,7 +14,7 @@ describe('TASK MODEL', function() {
   });
 
   describe('Retrive a single task object', function(){
-    it('should return a task object on query', function(done){
+    it('returns a task object on query', function(done){
       db.find(1).then(function(data) {
         assert.equal(data[0].title, 'Clean Kitchen');
         // assert.typeOf('array', data);

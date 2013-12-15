@@ -17,7 +17,8 @@
     "ejs": "~0.8.5",
     "node-mysql": "~0.3.4",
     "mysql": "~2.0.0-rc2",
-    "q": "~0.9.7"
+    "q": "~0.9.7",
+    "underscore": "~1.5.2"
   },
   "devDependencies": {
     "grunt-simple-mocha": "~0.4.0",

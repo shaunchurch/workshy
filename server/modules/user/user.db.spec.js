@@ -5,7 +5,7 @@ var db = require('./user.db.js');
 
 describe('USER MODEL', function() {
   describe('Retrieve a list of users', function() {
-    it('should return an array of user objects', function(done) {
+    it('returns an array of user objects', function(done) {
 
       db.all(0).then(function(data) {
           assert.equal('Shaun Church', data[0].name);
@@ -13,15 +13,11 @@ describe('USER MODEL', function() {
         },
         console.error);
 
-      // db.all(0, function(data) {
-      //   assert.equal('Shaun Church', data[0].name);
-      //   done();
-      // });
     });
   });
 
   describe('Retrive a single user object', function(){
-    it('should return a user object on query', function(done){
+    it('returns a single user object by id', function(done){
 
       db.find(1).then(function(data) {
         assert.equal('Shaun Church', data[0].name);
