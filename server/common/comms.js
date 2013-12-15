@@ -1,14 +1,36 @@
 var db = require('./db');
-var User = db.User;
+var socket;
 
-module.exports = function(io) {
-  io.sockets.on('connection', function(socket) {
+var map = {
+  tasks: db.Task.all,
+  task: db.Task.find,
+  users: db.User.all,
+  user: db.User.find,
+  assignments: db.Assignment.all
+}
 
-	socket.emit('handshake', 'Server to client...');
+module.exports = {
+	connect: function(io) {
+    io.sockets.on('connection', function(sock) {
+      socket = sock;
 
-	socket.on('handshake', function(data) {
-		console.log(data);
-	});
+      // handle socket data requests
+      socket.on('get', function(req) {
+        console.log(req.request);
+        if(map[req.request]) map[req.request](req, function(res) {
+          console.log('EMIT ' + req.request);
+          socket.emit(req.request, res);
+        });
+      });
 
-  });
+    });
+  },
+
+  emit: function(event, message) {
+    socket.emit(event, message);
+  },
+
+  on: function(event, callback) {
+    socket.on(event, callback);
+  }
 };

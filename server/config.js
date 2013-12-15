@@ -15,5 +15,11 @@ module.exports = {
     distFolder: path.resolve(__dirname, '../client/dist'),  // The folder that contains the application files (note that the files are in a different repository) - relative to this file
     staticUrl: '/static',                               // The base url from which we serve static files (such as js, css and images)
     cookieSecret: 'workshy-app'                         // The secret for encrypting the cookie
+  },
+  mysql: {
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'workshy'
   }
 };

@@ -32,6 +32,17 @@ angular.module('services.comms').factory('comms', ['$rootScope', '$location', fu
 					}
 				});
 			});
+		},
+		get: function(eventName, data, callback) {
+			console.log('GET: ' + eventName);
+			socket.emit('get', { request: eventName }, data, function() {
+				var args = arguments;
+				$rootScope.$apply(function() {
+					if(callback) {
+						callback.apply(socket, args);
+					}
+				})
+			});
 		}
 	};
 

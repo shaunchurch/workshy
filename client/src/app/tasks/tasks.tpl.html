@@ -2,4 +2,19 @@
 
 Let's show data:
 
-{{data}}
+
+<h3>People</h3>
+<ul ng-repeat="user in users">
+	<li>{{user.name}}</li>
+</ul>
+
+<h3>Tasks</h3>
+<ul ng-repeat="task in tasks">
+	<li>{{task.title}}</li>
+</ul>
+
+A: {{assignments}}
+
+<a ng-click="comms.emit('tasks')">Tasks</a>
+<a ng-click="comms.emit('users')">Users</a>
+
