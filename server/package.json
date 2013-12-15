@@ -17,5 +17,10 @@
     "ejs": "~0.8.5",
     "node-mysql": "~0.3.4",
     "mysql": "~2.0.0-rc2"
+  },
+  "devDependencies": {
+    "grunt-simple-mocha": "~0.4.0",
+    "grunt-contrib-jshint": "~0.7.2",
+    "chai": "~1.8.1"
   }
 }

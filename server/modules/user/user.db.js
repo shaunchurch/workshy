@@ -12,9 +12,6 @@ var UserModel = {
 
   find: function(id, done) {
     connection.query('SELECT * FROM users WHERE id = "' + id +'"', function(err, rows, etc) {
-      console.log('FIND ');
-      console.log(id);
-      console.log(rows);
       done(rows);
     });
   },

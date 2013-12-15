@@ -14,12 +14,6 @@ var db = require('./common/db');
 // var routes = require('./common/routes');
 var comms = require('./common/comms');
 
-// check db is running
-db.connection.connect(function(err) {
-	if(err) process.exit();
-	init();
-});
-
 function init() {
 	// initialise app
 	var app = express();
@@ -58,3 +52,11 @@ function init() {
 	});
 
 }
+
+// check db is running
+db.connection.connect(function(err) {
+	if(err) {
+		// process.exit();
+	}
+	init();
+});
