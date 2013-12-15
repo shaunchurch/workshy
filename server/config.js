@@ -21,5 +21,8 @@ module.exports = {
     user: 'root',
     password: '',
     database: 'workshy'
+  },
+  timer: {
+    interval: '7 days'
   }
 };

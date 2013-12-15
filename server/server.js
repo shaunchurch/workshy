@@ -1,5 +1,4 @@
 // essentials
-var fs = require('fs');
 var http = require('http');
 
 // frameworks
@@ -11,8 +10,8 @@ var config = require('./config');
 
 // modules
 var db = require('./common/db');
-// var routes = require('./common/routes');
 var comms = require('./common/comms');
+var timer = require('./modules/timer/timer.ctrl');
 
 function init() {
 	// initialise app
@@ -43,6 +42,8 @@ function init() {
 	// inititialise comms
 	comms.connect(io);
 
+	timer.init();
+
 	// standard error handler, 500
 	app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 
@@ -50,7 +51,6 @@ function init() {
 	server.listen(config.server.listenPort, '0.0.0.0', 511, function() {
 		console.log('Workshy Server listening on port ' + config.server.listenPort);
 	});
-
 }
 
 // check db is running

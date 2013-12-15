@@ -1,9 +1,7 @@
-<h1>Tasks</h1>
-
-Let's show data:
+<!-- <h1>Tasks</h1> -->
 
 
-<h3>People</h3>
+<!-- <h3>People</h3>
 <ul ng-repeat="user in users">
 	<li>{{user.name}}</li>
 </ul>
@@ -12,8 +10,20 @@ Let's show data:
 <ul ng-repeat="task in tasks">
 	<li>{{task.title}}</li>
 </ul>
+ -->
+<div>
+	<h1>Assigned Tasks</h1>
 
-A: {{assignments}}
+	<ul ng-repeat="user in assignments">
+		<li>
+			<h4>{{user[0]["user"].name}}</h4>
+			<ul ng-repeat="task in user">
+				<li>{{task["task"].title}}</li>
+			</ul>
+
+		</li>
+	</ul>
+</div>
 
 <a ng-click="comms.emit('tasks')">Tasks</a>
 <a ng-click="comms.emit('users')">Users</a>

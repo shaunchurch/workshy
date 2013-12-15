@@ -18,7 +18,8 @@
     "node-mysql": "~0.3.4",
     "mysql": "~2.0.0-rc2",
     "q": "~0.9.7",
-    "underscore": "~1.5.2"
+    "underscore": "~1.5.2",
+    "nodemailer": "~0.5.15"
   },
   "devDependencies": {
     "grunt-simple-mocha": "~0.4.0",

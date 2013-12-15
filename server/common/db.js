@@ -6,5 +6,6 @@ module.exports = {
   connection: connection,
   Task: require('../modules/task/task.db'),
   User: require('../modules/user/user.db'),
-  Assignment: require('../modules/assignment/assignment.db')
+  Assignment: require('../modules/assignment/assignment.db'),
+  Timer: require('../modules/timer/timer.db')
 };

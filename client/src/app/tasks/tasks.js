@@ -20,8 +20,9 @@ angular.module('workshy.tasks', [])
 
   // request data
   comms.get('users');
-  // comms.get('tasks');
-  // comms.get('assignments');
+  comms.get('tasks');
+  comms.get('assignments');
+
 
   comms.get('user', 1);
 

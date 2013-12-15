@@ -1,4 +1,6 @@
 var db = require('./db');
+var ctrl = require('./ctrl');
+
 var socket;
 
 var map = {
@@ -6,7 +8,7 @@ var map = {
   task: db.Task.find,
   users: db.User.all,
   user: db.User.find,
-  assignments: db.Assignment.all
+  assignments: ctrl.Assignment.buildAssignmentView
 }
 
 module.exports = {
