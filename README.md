@@ -3,12 +3,7 @@
 
 A simple task assignment manager. Work in progress.
 
-This project is an excuse to play with fun tech:
-
-Server is Node, Express, MySQL
-
-Client is Angular, Foundation, SASS
-
+An excuse to play with fun tech (Node, Express, Angular, Web Sockets, SASS), experiment with application organisation and to work on testing.
 
 ### Installation
 
@@ -24,3 +19,7 @@ Client is Angular, Foundation, SASS
 	npm install
 	node server
 	grunt test
+
+#### db
+	import database.sql
+	set creds in config.js

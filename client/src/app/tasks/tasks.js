@@ -23,7 +23,6 @@ angular.module('workshy.tasks', [])
   comms.get('tasks');
   comms.get('assignments');
 
-
   comms.get('user', 1);
 
 
@@ -36,15 +35,6 @@ angular.module('workshy.tasks', [])
 
   comms.on('handshake', function() {
     console.log('HANDSHAKE');
-  })
-
-  comms.on('tasks', function(data) {
-    console.log(data);
-    $scope.tasks = data;
-  });
-
-  comms.on('users', function(data) {
-    $scope.users = data;
   });
 
   comms.on('assignments', function(data) {
