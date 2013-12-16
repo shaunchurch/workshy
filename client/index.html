@@ -8,14 +8,23 @@
 
 <body ng-app="workshy" ng-controller="AppCtrl">
 
-	<div>
+    <!-- Nav Bar -->
+ 
+  <div class="row">
+    <div class="large-12 columns">
+      <div class="nav-bar right">
+       <ul class="button-group">
+         <li><a ui-sref="tasks" class="button">Tasks</a></li>
+        </ul>
+      </div>
+      <h1>Workshy <small>This is tasks.</small></h1>
+      <hr />
+    </div>
+  </div>
 
-		<h1>Workshy</h1>
+  <!-- End Nav -->
 
-		<a ui-sref="tasks">Tasks</a>
-		<a ui-sref="home">Home</a>
-
-	</div>
+  <!-- <a ui-sref="home">Home</a> -->
 
 	<div ui-view></div>
 

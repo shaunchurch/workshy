@@ -11,20 +11,23 @@
 	<li>{{task.title}}</li>
 </ul>
  -->
-<div>
-	<h1>Assigned Tasks</h1>
 
-	<ul ng-repeat="user in assignments">
-		<li>
-			<h4>{{user[0]["user"].name}}</h4>
-			<ul ng-repeat="task in user">
-				<li>{{task["task"].title}}</li>
-			</ul>
+<div class="row">
+    <div class="large-12 columns">
 
-		</li>
-	</ul>
+		<h2>Assigned Tasks</h2>
+
+		<ul ng-repeat="user in assignments">
+			<li>
+				<h4>{{user[0]["user"].name}}</h4>
+				<div ng-repeat="task in user">
+					<span>{{task["task"].title}}</span>
+				</div>
+			</li>
+		</ul>
+	</div>
 </div>
 
-<a ng-click="comms.emit('tasks')">Tasks</a>
+<!-- <a ng-click="comms.emit('tasks')">Tasks</a>
 <a ng-click="comms.emit('users')">Users</a>
-
+ -->
